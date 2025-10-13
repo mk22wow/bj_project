@@ -19,9 +19,9 @@ void checkTime(char* str, int* list, int size){
         }
         temp_ptr++;
     }
-    for(int i=0; i<size; i++){
-        printf("%d ",list[i]);
-    }
+    // for(int i=0; i<size; i++){
+    //     printf("%d ",list[i]);
+    // }
     int* temp_list = list;
     int max_position = 0;
     int duplication = 0;
@@ -53,19 +53,24 @@ int main(void){
         printf("wrong input1");
         return 0;
     }
+
+    char str[21][257];
+
     for(int i=0; i<time; i++){
-        char str[257];
-        int list[26] = {0};
-        if(fgets(str, sizeof(str), stdin) == NULL){
+        if(fgets(str[i], sizeof(str[i]), stdin) == NULL){
             printf("wrong input2");
             return 0;
         }
-        str[strcspn(str, "\n")] = '\0';
+        str[i][strcspn(str[i], "\n")] = '\0';
         //lowerCase(str);
         // for(int i=0; i<strlen(str); i++){
         //     printf("%c ",str[i]);
         // }
-        checkTime(str, list, 26);
+    }
+
+    for(int i=0; i<time; i++){
+        int list[26] = {0};
+        checkTime(str[i], list, 26);
     }
 
     return 0;
