@@ -21,24 +21,42 @@ int checkStr(char str[], int* count_a){
 int find_a(char str[], int count_a){
     int len = strlen(str);
     int max = 0, a = 0;
-    for(int i=0; i<len; i++){
-        for(int j=0; j<count_a; j++){
-            if(i+j<len){
-                if(str[i+j] == 'a'){
-                    a++;
-                }
-            }
-            else{
-                if(str[i+j-len] == 'a'){
-                    a++;
-                }
-            }
+    for(int i=0; i<count_a; i++){
+        if(str[i%len] == 'a'){
+            a++;
+        }
+    }
+    max = a;
+
+    for(int j = count_a; j<len+count_a-1; j++){
+        if(str[(j-count_a)%len] == 'a'){
+            a--;
+        }
+        if(str[j%len] == 'a'){
+            a++;
         }
         if(a>max){
             max = a;
         }
-        a = 0;
     }
+    // for(int i=0; i<len; i++){
+    //     for(int j=0; j<count_a; j++){
+    //         if(i+j<len){
+    //             if(str[i+j] == 'a'){
+    //                 a++;
+    //             }
+    //         }
+    //         else{
+    //             if(str[i+j-len] == 'a'){
+    //                 a++;
+    //             }
+    //         }
+    //     }
+    //     if(a>max){
+    //         max = a;
+    //     }
+    //     a = 0;
+    // }
     return max;
 }
 
