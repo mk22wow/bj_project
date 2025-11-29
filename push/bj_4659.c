@@ -18,7 +18,6 @@ typedef struct LinkedList {
 int checkVowel(char data);
 
 Node* createNode(char data){
-    checkVowel(data);
     Node* newNode = (Node*)malloc(sizeof(Node));
     if(newNode == NULL) {
         return NULL;
@@ -64,7 +63,7 @@ int checkPassword(LinkedList* password){
     if(password->size>2){
         while(temp->next->next!=NULL){
             if(temp->vowel == temp->next->vowel && temp->next->vowel == temp->next->next->vowel){
-                printf("%c %c %c",temp->data, temp->next->data, temp->next->next->data);
+               //printf("%c %c %c",temp->data, temp->next->data, temp->next->next->data);
                 return 0;
             }
             temp=temp->next;
@@ -77,7 +76,7 @@ int checkPassword(LinkedList* password){
         while(temp->next!=NULL){
             if(temp->data == temp->next->data){
                 if(temp->data != 'e' && temp->data != 'o'){
-                    printf("2sequence error\n");
+                    //printf("2sequence error\n");
                     return 0;
                 }
             }
@@ -98,7 +97,7 @@ void freeNode(LinkedList* password){
     }
     // password->head = NULL;
     // password->size = 0;
-    printf("free\n");
+    //printf("free\n");
 }
 
 int checkVowel(char data){
@@ -132,23 +131,68 @@ int checkEnd(char str[]){
     return 0;
 }
 
+// // 최적화된 checkPassword 함수
+// int checkPassword(LinkedList* password) {
+//     if (password->head == NULL) {
+//         return 0; // 빈 비밀번호는 유효하지 않다고 가정
+//     }
+
+//     Node* temp = password->head;
+//     int hasVowel = 0;
+//     int consecutiveVowel = 0;
+//     int consecutiveConsonant = 0;
+    
+//     while (temp != NULL) {
+//         // 1. 모음 포함 여부 확인
+//         if (temp->vowel == 1) {
+//             hasVowel = 1;
+//         }
+
+//         // 2. 3개 연속 모음/자음 확인
+//         if (temp->vowel == 1) { // 현재 문자가 모음일 경우
+//             consecutiveVowel++;
+//             consecutiveConsonant = 0;
+//         } else { // 현재 문자가 자음일 경우
+//             consecutiveConsonant++;
+//             consecutiveVowel = 0;
+//         }
+
+//         if (consecutiveVowel >= 3 || consecutiveConsonant >= 3) {
+//             return 0;
+//         }
+
+//         // 3. 같은 글자 연속 확인 (e, o 제외)
+//         if (temp->next != NULL) {
+//             if (temp->data == temp->next->data) {
+//                 if (temp->data != 'e' && temp->data != 'o') {
+//                     return 0;
+//                 }
+//             }
+//         }
+        
+//         temp = temp->next;
+//     }
+
+//     return hasVowel;
+// }
+
 int main(void){
 
     char str[256];
 
     while(1){
     if(fgets(str, 255, stdin) == NULL){
-        printf("wrong input1");
+        printf("wrong input1\n");
         continue;
     }
     str[strcspn(str, "\n")] = '\0';
     if(!checkStr(str)){
-        printf("wrong input2");
+        printf("wrong input2\n");
         continue;
     }
 
     if(checkEnd(str)){
-        return 0;
+        break;
     }
 
     LinkedList password;

@@ -43,10 +43,10 @@ int main(void){
     while(i<times){
         int num1 = 0, num2 = 0;
         scanf("%d %d", &num1, &num2);
-        if(list[num1]->left_right != -1 && list[num1]->left_right != num2){
-            list[num1]->movement++;
+        if(list[num1-1]->left_right != -1 && list[num1-1]->left_right != num2){
+            list[num1-1]->movement++;
         }
-        list[num1]->left_right = num2;
+        list[num1-1]->left_right = num2;
         i++;
     }
 
@@ -73,10 +73,10 @@ int main(void){
     while(i<times){
         int num1 = 0, num2 = 0;
         scanf("%d %d", &num1, &num2);
-        if(list[num1] != -1 && list[num1] != num2){
+        if(list[num1-1] != -1 && list[num1-1] != num2){
             min_move++;
         }
-        list[num1] = num2;
+        list[num1-1] = num2;
         i++;
     }
 

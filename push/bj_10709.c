@@ -30,8 +30,8 @@ int main(void){
     }
 
     while(getchar() != '\n');
-    if((h>0 && h<=100) && (w>0 && w<=100)){
-        for(int i=0; i<h; i++){
+    for(int i=0; i<h; i++){
+            if((h>0 && h<=100) && (w>0 && w<=100)){
             char* cloud = (char*)malloc(w+2);
             // if(fgets(cloud, w+2, stdin) == NULL){
             //     free(cloud);

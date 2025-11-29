@@ -35,7 +35,7 @@ void insertPlayer(GameNode* game, Node* newNode){
     
     while(currentPlayer != NULL){
         if(predPlayer == currentPlayer){
-            if(strcmp(newNode->name, currentPlayer->name) == -1){
+            if(strcmp(newNode->name, currentPlayer->name)<0){
                 newNode->next = currentPlayer;
                 game->players = newNode;
                 return;
@@ -43,7 +43,7 @@ void insertPlayer(GameNode* game, Node* newNode){
             currentPlayer = currentPlayer->next;
         }
         else{
-            if(strcmp(newNode->name, currentPlayer->name) == -1){
+            if(strcmp(newNode->name, currentPlayer->name)<0){
                 newNode->next = currentPlayer;
                 predPlayer->next = newNode;
                 return;

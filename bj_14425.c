@@ -5,7 +5,8 @@
 
 unsigned long HashValue(char* str, int tablesize){
     unsigned long hashvalue = 0;
-    for(int i=0; i<strlen(str); i++){
+    int len = strlen(str);
+    for(int i=0; i<len; i++){
         hashvalue += str[i];
     }
 

@@ -87,7 +87,7 @@ void freeTree(Node* root){
     }
     list = (Node**)calloc(N, sizeof(Node*));
     tree_traversal(root, list, &index);
-    qsort(list, index, sizeof(Node**), compare_info);
+    qsort(list, index, sizeof(Node*), compare_info);
     print_list(list);
 
     freeTree(root);

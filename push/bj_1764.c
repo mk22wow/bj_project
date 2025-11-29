@@ -164,11 +164,11 @@ int main(void){
 
 unsigned long create_hash(char* str, int tableSize){
     int i=0;
-    int HashValue = 0;
+    unsigned long HashValue = 0;
 
     for(i=0; str[i]!='\0'; i++){
         HashValue = (HashValue<<3) + str[i]; 
-        HashValue = HashValue % tableSize;
+        //HashValue = HashValue % tableSize;
     }
 
     HashValue = HashValue % tableSize;
@@ -229,6 +229,7 @@ void Hash_Set(HashTable* HT, char* str){
         if(!strcmp(temp->str, str)){
             return;
         }
+        temp = temp->next;
     }
     
     Node* newNode = create_Node(str);
@@ -258,7 +259,8 @@ void free_HashTable(HashTable* HT){
         Node* nextNode;
         while(temp!=NULL){
             nextNode = temp->next;
-            freeNode(temp);
+            free(temp->str);
+            free(temp);
             temp = nextNode;
         }
     }

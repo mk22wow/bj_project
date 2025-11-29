@@ -54,7 +54,7 @@ int main(void){
         return 0;
     }
 
-    char str[21][257];
+    char str[21][256];
 
     for(int i=0; i<time; i++){
         if(fgets(str[i], sizeof(str[i]), stdin) == NULL){
@@ -62,10 +62,11 @@ int main(void){
             return 0;
         }
         str[i][strcspn(str[i], "\n")] = '\0';
-        //lowerCase(str);
-        // for(int i=0; i<strlen(str); i++){
-        //     printf("%c ",str[i]);
+        // lowerCase(str[i]);
+        // for(int j=0; j<strlen(str[i]); j++){
+        //     printf("%c ",str[i][j]);
         // }
+        // printf("\n");
     }
 
     for(int i=0; i<time; i++){

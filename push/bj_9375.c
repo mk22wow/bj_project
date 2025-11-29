@@ -67,6 +67,7 @@ int main(void){
         int result = resultNode(table, cloth);
         printf("%d\n", result);
         free(table);
+        i++;
     }
     return 0;
 }

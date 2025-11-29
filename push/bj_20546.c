@@ -93,9 +93,9 @@ int main(void){
     timing(stock_b, stock_price, up_down);
 
     int money_a = stock_a->money + stock_a->price * stock_a->stock;
-    printf("%d %d %d\n", stock_a->money, stock_a->price, stock_a->stock);
+    //printf("%d %d %d\n", stock_a->money, stock_a->price, stock_a->stock);
     int money_b = stock_b->money + stock_b->price * stock_b->stock;
-    printf("%d %d %d\n", stock_b->money, stock_b->price, stock_b->stock);
+    //printf("%d %d %d\n", stock_b->money, stock_b->price, stock_b->stock);
    
     if(money_a>money_b){
         printf("BNP\n");

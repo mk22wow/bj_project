@@ -1,4 +1,4 @@
-/*#define _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 #include <string.h>
@@ -90,4 +90,4 @@ int main(void) {
 	count_list(list, h, w);
 	free_list(list, h, w);
 	return 0;
-}*/
+}
