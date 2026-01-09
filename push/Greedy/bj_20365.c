@@ -38,7 +38,6 @@ int main(void){
     for(int i=0; i<N; i++){
         char temp;
         scanf(" %c", &temp);
-        printf("%c\n", temp);
         if(temp != pred){
             str[index++] = temp;
             pred = temp;
