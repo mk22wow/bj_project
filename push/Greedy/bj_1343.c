@@ -14,7 +14,7 @@ int main(void){
             index++;
             count_x++;
         }
-        if(count_x&2 != 0){
+        if(count_x%2 != 0){
             printf("-1\n");
             return 0;
         }
