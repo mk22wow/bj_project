@@ -21,10 +21,6 @@ int main(void){
     
 
     qsort(list, N, sizeof(long long), Compare);
-    for(int i=0; i<N; i++){
-        printf("%lld ", list[i]);
-    }
-
     if(N%2 != 0){
         M = list[--N];
     }
