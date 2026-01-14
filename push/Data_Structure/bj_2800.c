@@ -37,7 +37,6 @@ void Find(int d){
             }
         }
         temp[idx] = '\0';
-        printf("d : %s\n", temp);
         if(strcmp(temp, str) == 0){
             return;
         }
