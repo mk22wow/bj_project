@@ -1,51 +1,6 @@
 #include <stdio.h>
 
-int main(void){
-    char input[31];
-    char list[31];
-    int answer = 0, top = -1, temp = 1;
-    scanf("%s", input);
-    for(int i=0; input[i]; i++){
-        if(input[i] == '('){
-            list[++top] = '(';
-            temp*=2;
-        }
-        else if(input[i] == '['){
-            list[++top] = '[';
-            temp*=3;
-        }
-        else if(input[i] == ')'){
-            if(top<0 || list[top] != '('){
-                printf("0\n");
-                return 0;
-            }
-            if(input[i-1] == '('){
-                answer += temp;
-            }
-            temp/=2;
-            top--;
-        }
-        else{
-            if(top<0 || list[top] != '['){
-                printf("0\n");
-                return 0;
-            }
-            if(input[i-1] == '['){
-                answer += temp;
-            }
-            temp/=3;
-            top--;
-        }
-    }
-
-    if(top!=-1){
-        printf("0\n");
-    }
-    else printf("%d\n", answer);
-    return 0;
-}
-
-/*char input[31];
+char input[31];
 int pair_count = 0, answer = 0;
 
 typedef struct{
@@ -123,4 +78,49 @@ int main(void){
     scanf("%s", input);
     Find(0);
     return 0;
-}*/
+}
+
+// int main(void){
+//     char input[31];
+//     char list[31];
+//     int answer = 0, top = -1, temp = 1;
+//     scanf("%s", input);
+//     for(int i=0; input[i]; i++){
+//         if(input[i] == '('){
+//             list[++top] = '(';
+//             temp*=2;
+//         }
+//         else if(input[i] == '['){
+//             list[++top] = '[';
+//             temp*=3;
+//         }
+//         else if(input[i] == ')'){
+//             if(top<0 || list[top] != '('){
+//                 printf("0\n");
+//                 return 0;
+//             }
+//             if(input[i-1] == '('){
+//                 answer += temp;
+//             }
+//             temp/=2;
+//             top--;
+//         }
+//         else{
+//             if(top<0 || list[top] != '['){
+//                 printf("0\n");
+//                 return 0;
+//             }
+//             if(input[i-1] == '['){
+//                 answer += temp;
+//             }
+//             temp/=3;
+//             top--;
+//         }
+//     }
+
+//     if(top!=-1){
+//         printf("0\n");
+//     }
+//     else printf("%d\n", answer);
+//     return 0;
+// }
