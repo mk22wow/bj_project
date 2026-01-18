@@ -3,7 +3,7 @@
 #include <string.h>
 #include <limits.h>
 
-/*int V, E;
+int V, E;
 int usedsize = 0;
 
 typedef struct Node{
@@ -142,77 +142,77 @@ int main(void){
     }
     free(h);
     return 0;
-}*/
-
-int V, E;
-
-typedef struct{
-    int u;
-    int v;
-    int weight;
-}Edge;
-
-int parent[10001];
-
-int Compare(const void* a, const void* b){
-    Edge* pa = (Edge*)a;
-    Edge* pb = (Edge*)b;
-    return pa->weight - pb->weight;
 }
 
-int Find(int i){
-    if(parent[i] == i){
-        return i;
-    }
-    return parent[i] = Find(parent[i]);
-}
+// int V, E;
 
-void unionSets(int i, int j){
-    int root_i = Find(i);
-    int root_j = Find(j);
-    if(root_i != root_j){
-        parent[root_i] = root_j;
-    }
-}
+// typedef struct{
+//     int u;
+//     int v;
+//     int weight;
+// }Edge;
 
-void Kruskal(Edge* edges){
-    qsort(edges, E, sizeof(Edge), Compare);
+// int parent[10001];
 
-    for(int i=0; i<V; i++){
-        parent[i] = i;
-    }
+// int Compare(const void* a, const void* b){
+//     Edge* pa = (Edge*)a;
+//     Edge* pb = (Edge*)b;
+//     return pa->weight - pb->weight;
+// }
 
-    int total = 0;
-    int edge_count = 0;
+// int Find(int i){
+//     if(parent[i] == i){
+//         return i;
+//     }
+//     return parent[i] = Find(parent[i]);
+// }
 
-    for(int i=0; i<E; i++){
-        if(Find(edges[i].u) != Find(edges[i].v)){
-            unionSets(edges[i].u, edges[i].v);
-            total += edges[i].weight;
-            edge_count++;
+// void unionSets(int i, int j){
+//     int root_i = Find(i);
+//     int root_j = Find(j);
+//     if(root_i != root_j){
+//         parent[root_i] = root_j;
+//     }
+// }
 
-            if(edge_count == V-1) break;
-        }
-    }
-    if(V>0 && edge_count == V-1){
-        printf("%d\n", total);
-    }
-    else printf("0\n");
-}
+// void Kruskal(Edge* edges){
+//     qsort(edges, E, sizeof(Edge), Compare);
 
-int main(void){
-    if(scanf("%d %d", &V, &E) != 2) return 0;
+//     for(int i=0; i<V; i++){
+//         parent[i] = i;
+//     }
 
-    Edge* edges = (Edge*)malloc(sizeof(Edge)*E);
-    for(int i=0; i<E; i++){
-        int u, v, w;
-        scanf("%d %d %d", &u, &v, &w);
-        edges[i].u = u-1;
-        edges[i].v = v-1;
-        edges[i].weight = w;
-    }
+//     int total = 0;
+//     int edge_count = 0;
 
-    Kruskal(edges);
-    free(edges);
-    return 0;
-}
+//     for(int i=0; i<E; i++){
+//         if(Find(edges[i].u) != Find(edges[i].v)){
+//             unionSets(edges[i].u, edges[i].v);
+//             total += edges[i].weight;
+//             edge_count++;
+
+//             if(edge_count == V-1) break;
+//         }
+//     }
+//     if(V>0 && edge_count == V-1){
+//         printf("%d\n", total);
+//     }
+//     else printf("0\n");
+// }
+
+// int main(void){
+//     if(scanf("%d %d", &V, &E) != 2) return 0;
+
+//     Edge* edges = (Edge*)malloc(sizeof(Edge)*E);
+//     for(int i=0; i<E; i++){
+//         int u, v, w;
+//         scanf("%d %d %d", &u, &v, &w);
+//         edges[i].u = u-1;
+//         edges[i].v = v-1;
+//         edges[i].weight = w;
+//     }
+
+//     Kruskal(edges);
+//     free(edges);
+//     return 0;
+// }
