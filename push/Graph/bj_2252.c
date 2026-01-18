@@ -95,6 +95,7 @@ int main(void){
             temp = current;
         }
     }
+    free(G->list);
     free(G->degree);
     free(G);
     return 0;
