@@ -25,7 +25,3 @@ int main(void){
     return 0;
 
 }
- 
-//  1 2 3 a c v(6) v(9) a c v(18) / v(27) a c v(54) v(81) a c v(162) v(243) v(324)
-
-//  1 2 3 4 a c v(8) v(12) v(16) a / c v(32) v(48) v(64)
