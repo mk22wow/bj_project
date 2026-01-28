@@ -34,7 +34,7 @@ int check(int mid){
         while(front<rear){
             int curr = q[front++];
             int e = head[curr];
-            while(e!=NULL){
+            while(e!=0){
                 if(color[to[e]] == -1){
                     color[to[e]] = 1 - color[curr];
                     if(color[to[e]] == 0) S1++;
