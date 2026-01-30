@@ -9,7 +9,7 @@ typedef struct Edge{
     struct Edge* next;
 }Edge;
 
-int N, M, log;
+int N, M, max_log;
 Edge* T[MAXN] = {0};
 int depth[MAXN];
 int parent[MAXN][20];
@@ -47,7 +47,7 @@ void DFS(int s, int p, int d){
 }
 
 void DP(){
-    for(int i=1; i<=log; i++){
+    for(int i=1; i<=max_log; i++){
         for(int j=0; j<N; j++){
             if(parent[j][i-1] != -1){
                 parent[j][i] = parent[parent[j][i-1]][i-1];
@@ -71,7 +71,7 @@ void Find(int a, int b){
 
     if(a == b) printf("%d\n", a+1);
     else{
-        for(int i=log; i>=0; i--){
+        for(int i=max_log; i>=0; i--){
             if(parent[a][i] != parent[b][i]){
                 a = parent[a][i];
                 b = parent[b][i];
@@ -90,7 +90,7 @@ int main(void){
         addEdge(a-1, b-1);
     }
 
-    log = LOG();
+    max_log = LOG();
     memset(parent, -1, sizeof(parent));
     DFS(0, -1, 0);
     DP();
