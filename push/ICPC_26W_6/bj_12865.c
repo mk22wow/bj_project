@@ -23,7 +23,9 @@ int main(void){
         }
         for(int j=0; j<=K; j++){ 
             if(j == 0 || DP[j][i-1] != 0){
-                DP[j+W[i]][i] = max(DP[j+W[i]][i], DP[j][i-1]+V[i]);
+                if(j+W[i]<=K){
+                    DP[j+W[i]][i] = max(DP[j+W[i]][i], DP[j][i-1]+V[i]);
+                }
             }
         }        
     }
