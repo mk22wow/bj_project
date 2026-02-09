@@ -37,14 +37,11 @@ int main(void){
                 if(DP[j] == 1){
                     if(j<=list[i].p){
                         int temp = j+list[i].s;
-                        if(temp<=100001){
+                        if(temp<=101000){
                             DP[temp] = 1;
                         }
                     }
                 }
-                // if(DP[i][j] == 0) continue;
-                // if(DP[i+1][j]<DP[i][j]) DP[i+1][j] = DP[i][j];
-                // if(j<=list[i].p) DP[i+1][j+list[i].s] = 1; 
             }
         }
 
